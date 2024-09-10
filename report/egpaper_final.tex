@@ -1,0 +1,112 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+\setcounter{page}{4321}
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{Perceptron}
+
+\author{Sam Gilbert\\
+   a1737770\\}
+\maketitle
+%\thispagestyle{empty}
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+   The perceptron algorithm is one of the simplest machine learning algorithms. It is a
+   form of supervised learning that
+\end{abstract}
+
+%%%%%%%%% BODY TEXT
+\section{Introduction}
+
+Perceptron is one of the simplest machine learning algorithms. Perceptron is a supervised learning
+algorithm that takes a combination of parameters to make a binary classification.
+Perceptron works by iteratively calculating a set of weights based on the dimension size
+of the features in the dataset, $D$. The output of which is a line or $D$ dimension plane
+that separates the observations into two categories. Perceptron calculates the updated
+weights iteratively and in an ideal world will converge to a $D$ dimension vector of values
+that separates all values into their correct groups. Where the data is not able to be
+separated cleanly into two groups the Perceptron algorithm will never converge. This requires
+a max iteration value to be set such that the problem is bounded. If a max iteration value
+is not set the Perceptron algorithm can keep moving back and forth trying to cleanly separate
+the training observations into the correct groups. Determining the optimal max iterations
+for the dataset will be investigated in the method section of the report.
+
+In this project the Perceptron algorithm was implemented on the Pima Indians Diabetes Database
+open source dataset \cite{kagglePimaIndians}. This dataset contains a set of eight medical
+predictor variables, the number of pregnancies the patient has had, their BMI, insulin level,
+plasma glucose concentration, blood pressure, skin fold thickness, age and their diabetes
+pedigree. The dataset also contains an outcome variable which is either the patient has
+diabetes or they don't have diabetes. The predictor variables are each one of the $D$
+dimensions.
+%% talk about activation function
+
+\section{Method}
+
+As outlined in the introduction section the goal of the Perceptron algorithm is to separate
+the entries in the dataset into one of two binary groups. The data is read into a python array
+of dictionaries with the features being stored in a $D$ dimensional array and the outcome
+stored as a signed integer. The data is then split into a training and testing set using the
+scikit learn train test function. An 80-20 training testing split was used \cite{gholamy_why_nodate}.
+
+The Perceptron algorithm takes an input layer which is the set of features in each observation, let
+the vector of features for observation $i$ be defined as $x_i$. Let the collection of these observations
+be defined as $X$. Each of these observations have an outcome variable which is whether the patient has
+diabetes or not. Let the outcome for the $i_{th}$ observation be defined as $y_i$. This outcome variable
+is either $+1$ if the patient has diabetes or $-1$ if the patient doesn't have diabetes. Let the collection
+of all the outcomes for each observation be defined as $Y$. The Perceptron algorithm starts by creating a $D$
+dimension vector of weights, defined as $W$. For this implementation the initial $W$ is set as a $D$ dimension
+zero vector. A bias value is also required which is defined as $b$ initially set to $0$. This bias shifts the
+intercept of the dimensions linear separator away from $0$ and is required as it may not be possible to
+split the data points if this doesn't occur.
+
+The Perceptron algorithm works by calculating the dot product of $x_i$ and $W$ and adding the bias, $b$.
+The sign function is then passed the result and this is our activation function corresponding to the possible
+values of the outcome variable mentioned above. The sign function is defined as
+\[
+   sign(x)= \begin{cases*}
+      -1 & if x $<$ 0 \\
+      0  & if x = 0   \\
+      +1 & if x $>$ 0 \\
+   \end{cases*}
+\]
+
+To determine if the perceptron has correctly classified the observation, the result of the sign function
+corresponds to the outcome variable possibilities of whether a patient has diabetes or not.
+\begin{equation}
+   x_i \cdot W
+\end{equation}
+for a single observation.
+
+
+
+   %-------------------------------------------------------------------------
+
+   {\small
+      \bibliographystyle{ieee_fullname}
+      \bibliography{egbib}
+   }
+
+\end{document}
