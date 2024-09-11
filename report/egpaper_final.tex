@@ -21,7 +21,7 @@
 
 % Pages are numbered in submission mode, and unnumbered in camera-ready
 %\ifcvprfinal\pagestyle{empty}\fi
-\setcounter{page}{4321}
+\setcounter{page}{1}
 \begin{document}
 
 %%%%%%%%% TITLE
@@ -85,28 +85,69 @@ split the data points if this doesn't occur.
 The Perceptron algorithm works by calculating the dot product of $x_i$ and $W$ and adding the bias, $b$.
 The sign function is then passed the result and this is our activation function corresponding to the possible
 values of the outcome variable mentioned above. The sign function is defined as
-\[
+
+\begin{equation}
    sign(x)= \begin{cases*}
       -1 & if x $<$ 0 \\
       0  & if x = 0   \\
       +1 & if x $>$ 0 \\
    \end{cases*}
-\]
+\end{equation}
 
 To determine if the perceptron has correctly classified the observation, the result of the sign function
-corresponds to the outcome variable possibilities of whether a patient has diabetes or not.
-\begin{equation}
-   x_i \cdot W
+corresponds to the outcome variable possibilities of whether a patient has diabetes or not. Therefore, the
+whole process of making a prediction on an observation is defined as.
+
+\begin{equation}\label{eq:pred}
+   f(x) = sign((x_i \cdot W) + b)
 \end{equation}
-for a single observation.
+
+Using the predictions from equation \eqref{eq:pred} the weight vector, $W$ can be updated during the training process.
+By multiplying the prediction by the actual class of the observation and checking the resulting value is $>0$
+the update logic can be simplified. If the result is $>0$ then the perceptron has made a correct prediction
+and does not need to be updated. This can be seen in the logic table below showing if a correct
+prediction is made the result will always be $>0$ and if an incorrect prediction is made the result will be
+$<=0$
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ ||c c c|| }
+      \hline
+      Truth & Prediction & Output \\
+      \hline
+      1     & 1          & 1      \\
+      \hline
+      1     & -1         & -1     \\
+      \hline
+      -1    & 1          & -1     \\
+      \hline
+      -1    & -1         & 1      \\
+      \hline
+   \end{tabular}      \label{tab:logic}
+   \caption{Prediction vs truth logic table for predictions}
+\end{table}
+
+If the perceptron makes an incorrect prediction during the training phase $W$ is updated by multiplying
+$y_i$ with $x_i$. Let $W$ at the current time be defined as $W_t$. This update step is defined as
+
+\begin{equation}\label{eq:updateweight}
+   W_{t+1} = W_t + (y_i * x_i)
+\end{equation}
+
+Similarly, $b$ needs to be updated in the case of an incorrect prediction. Let $b$ at the current time
+be defined as $b_t$. The update step is defined as
+
+\begin{equation}\label{eq:updateweight}
+   b_{t+1} = b_t + y_i
+\end{equation}
 
 
 
-   %-------------------------------------------------------------------------
 
-   {\small
-      \bibliographystyle{ieee_fullname}
-      \bibliography{egbib}
-   }
+
+%-------------------------------------------------------------------------
+\small
+\bibliographystyle{ieee_fullname}
+\bibliography{egbib}
+
 
 \end{document}
