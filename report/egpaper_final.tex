@@ -7,6 +7,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\graphicspath{ {./images/} }
+
 % Include other packages here, before hyperref.
 
 % If you comment hyperref and then uncomment it, you should delete
@@ -136,12 +138,89 @@ $y_i$ with $x_i$. Let $W$ at the current time be defined as $W_t$. This update s
 Similarly, $b$ needs to be updated in the case of an incorrect prediction. Let $b$ at the current time
 be defined as $b_t$. The update step is defined as
 
-\begin{equation}\label{eq:updateweight}
+\begin{equation}\label{eq:updatebias}
    b_{t+1} = b_t + y_i
 \end{equation}
 
+This process is repeated for every observation in the training set. In an ideal scenario this process would
+be repeated until every element has been correctly classified, however this is most often not possible. Where
+the data is not linearly separable on a given dimension the Perceptron algorithm will not be able to converge
+on a solution. To address this a max iteration value must be set which will set a stop point for the algorithm
+if it fails to converge. This max iteration value is the number of times the algorithm will iterate over the
+entire training dataset during the training phase. Different values will be investigated in the results section
+to examine the impact it has on the overall model performance.
 
+\section {Results}
+\subsection{Max Iteration Investigation}
+As discussed above the max iteration value used during the training phase can have a big impact on the
+overall model performance. Allowing the model time to converge on an optimal or near optimal solution is
+paramount. To determine the appropriate magnitude of the max iteration value, various values were set
+during the training phase. A set seed was passed to the function that splits the data into the training
+and testing set to ensure each value of max iterations was being tested on the same data.
+To reduce the variance in the results,
+which will be investigated later, each max iteration value was run 10 times and the mean of the model accuracy
+was calculated.
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ ||c c|| }
+      \hline
+      Iterations & Mean Accuracy \\
+      \hline
+      1          & 0.723         \\
+      \hline
+      10         & 0.730         \\
+      \hline
+      50         & 0.753         \\
+      \hline
+      100        & 0.789         \\
+      \hline
+      500        & 0.703         \\
+      \hline
+      1000       & 0.703         \\
+      \hline
+      2000       & 0.736         \\
+      \hline
+      4000       & 0.730         \\
+      \hline
+      8000       & 0.697         \\
+      \hline
+   \end{tabular}      \label{tab:iterations}
+   \caption{Iterations vs mean accuracy}
+\end{table}
 
+Plotting the results from the table above it can be observed that as the number of max iterations increases,
+the corresponding mean accuracy of the Perceptron algorithm also increases before reaching an equilibrium.
+For the highest magnitude max iterations the accuracy begins to drop off. This will be investigated in the
+discussion section. There is also a spike at the iteration value of 100 and this will be investigated in the
+discussion section.
+\includegraphics[scale=0.6]{Figure_1.png}
+\subsection{Result Variance Investigation}
+The variance of the final model accuracy result is highly dependent on the data selected for the training set.
+Since the data is randomly selected, the final model $W$ vector and $b$ can vary greatly. The impact of this
+was investigated by running the Perceptron algorithm 50 times with an iteration value of 2000 which was found
+to provide the best, stable results.
+
+\includegraphics[scale=0.55]{Figure_2.png}
+From the plot above it can be observed that the variance of the Perceptron algorithm can vary greatly depending
+on the initial split. This can possibly be mitigated and approaches for this will be investigated in the
+discussion section
+
+\section{Discussion}
+The Perceptron algorithm can be very effective at predicting diabetes using the Pima Indian dataset. Depending
+on the number of iterations and the data chosen for the training set accuracy as high as  approximately 0.83
+has been observed. It can be highly variable in its performance due to the datasets small size and the lack
+of a solution that splits all the observations into the correct groups. With the dataset only containing 768
+observations, when it is split into the training and testing sets the training set only contains 614 observations.
+This small set of observations leads to variability in the models performance depending on the sample selected.
+To address this a bigger dataset could be used which would result in a reduced impact on the final results
+caused by the small number of observations.
+
+For this report, outlier data was not accounted for. This could have compounded with the small dataset size
+to increase the variability of the final results. If the training dataset contained a high proportion of
+observations with outlier data the final $W$ would not result in optimal results when run against the testing
+set. Future work for this problem would be to address the outlier data through omitting observations that
+contain outlier values or devising a method of keeping them out of the training set which would likely
+increase the models average performance.
 
 
 %-------------------------------------------------------------------------

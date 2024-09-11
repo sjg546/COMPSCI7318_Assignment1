@@ -1,10 +1,52 @@
 from perceptron import Perceptron
 from utilities import Utilities
 
+import matplotlib.pyplot as plt
+
 utilities = Utilities()
 
 utilities.parse_input("./data/diabetes_scale.txt")
+run_count = 10
+iteration_count = [1,10,50,100,500,1000,2000,4000,8000]
+# Max Iteration Test
+# for iteration in iteration_count:
+#     accuracy_result = []
+#     for run in range(run_count):
+#         perceptron = Perceptron(utilities.data,42)
+#         perceptron.run(iteration)
+#         accuracy_result.append(perceptron.predict())
 
-perceptron = Perceptron(utilities.data)
-perceptron.run()
-perceptron.predict()
+#     mean_accuracy = sum(accuracy_result)/len(accuracy_result)
+#     print(f"Iterations={iteration}, Mean Accuracy={mean_accuracy}")
+
+# Result variance test     
+# variance_run_count = 50
+# accuracy = []
+# count = 0
+# for run in range(variance_run_count):
+#     perceptron = Perceptron(utilities.data)
+#     perceptron.run(2000)
+#     accuracy.append(perceptron.predict())
+#     count += 1
+#     print(count)
+
+# print(accuracy)
+y=[0.6710526315789473, 0.7105263157894737, 0.7302631578947368, 0.8486842105263158, 0.7236842105263158, 0.6973684210526315, 0.6513157894736842, 0.743421052631579, 0.6513157894736842, 0.6710526315789473, 0.7368421052631579, 0.7302631578947368, 0.7302631578947368, 0.743421052631579, 0.7368421052631579, 0.6776315789473685, 0.7039473684210527, 0.6644736842105263, 0.7302631578947368, 0.756578947368421, 0.7763157894736842, 0.3618421052631579, 0.7171052631578947, 0.75, 0.6973684210526315, 0.6776315789473685, 0.7039473684210527, 0.6842105263157895, 0.743421052631579, 0.4144736842105263, 0.45394736842105265, 0.6973684210526315, 0.743421052631579, 0.6907894736842105, 0.743421052631579, 0.6710526315789473, 0.6644736842105263, 0.7039473684210527, 0.7039473684210527, 0.6710526315789473, 0.6578947368421053, 0.7105263157894737, 0.7236842105263158, 0.7236842105263158, 0.5921052631578947, 0.6513157894736842, 0.6118421052631579, 0.8092105263157895, 0.7697368421052632, 0.7631578947368421]
+# y = [
+# 0.7236842105263158,
+# 0.730263157894737,
+# 0.6907894736842105,
+# 0.7894736842105264,
+# 0.7039473684210528,
+# 0.7039473684210528,
+# 0.7368421052631577,
+# 0.730263157894737,
+# 0.6973684210526316,
+# ]
+
+plt.plot(y)
+plt.title("Result Variance")
+plt.xlabel("Run")
+plt.ylabel("Accuracy")
+
+plt.show()

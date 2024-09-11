@@ -4,7 +4,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 
 class Perceptron:
-    def __init__(self,data):
+    def __init__(self,data,random_state=-1):
         self.features = []
         for entry in data:
             self.features.append(entry["data"])
@@ -17,14 +17,19 @@ class Perceptron:
         self.b = 0
         self.max_pass = 10
         self.mistake = 1
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.features, self.actuals, test_size=0.2)
+        if not random_state == -1: 
+            self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.features, self.actuals,random_state=random_state, test_size=0.2,stratify=self.actuals)
+        else:
+            self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.features, self.actuals, test_size=0.2,stratify=self.actuals)
     
     def predict(self):
         y_pred = []
         for entry in self.X_test:
-            y_pred.append(np.sign(np.dot(entry, self.w) + self.b)) 
-        print(confusion_matrix(self.y_test, y_pred))
-        print(accuracy_score(self.y_test, y_pred))
+            y_pred.append(np.sign(np.dot(entry, self.w) + self.b))
+
+        return accuracy_score(self.y_test, y_pred)
+        # print(confusion_matrix(self.y_test, y_pred))
+        # print(accuracy_score(self.y_test, y_pred))
 
     def run(self,iterations=10000):
         for i in range(iterations):
@@ -35,4 +40,4 @@ class Perceptron:
                     self.b += self.y_train[index]
                     self.mistake += 1
         
-        print(self.w)
+        # print(self.w)
