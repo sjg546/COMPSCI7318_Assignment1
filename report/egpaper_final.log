@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.12)  11 SEP 2024 12:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.12)  14 SEP 2024 11:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -341,41 +341,36 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<./images/Figure_1.png, id=26, 462.528pt x 346.896pt>
+<./images/Figure_1.png, id=25, 462.528pt x 346.896pt>
 File: ./images/Figure_1.png Graphic file (type png)
 <use ./images/Figure_1.png>
-Package pdftex.def Info: ./images/Figure_1.png  used on input line 196.
+Package pdftex.def Info: ./images/Figure_1.png  used on input line 200.
 (pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
 
-Underfull \hbox (badness 1668) in paragraph at lines 191--197
+Underfull \hbox (badness 1668) in paragraph at lines 195--201
 \OT1/ptm/m/n/10 high-est mag-ni-tude max it-er-a-tions the ac-cu-racy be-gins
  []
 
 
-Overfull \hbox (40.383pt too wide) in paragraph at lines 191--197
+Overfull \hbox (40.383pt too wide) in paragraph at lines 195--201
 [] 
  []
 
-
-
-<./images/Figure_2.png, id=28, 462.528pt x 346.896pt>
+<./images/Figure_2.png, id=27, 462.528pt x 346.896pt>
 File: ./images/Figure_2.png Graphic file (type png)
 <use ./images/Figure_2.png>
-Package pdftex.def Info: ./images/Figure_2.png  used on input line 203.
+Package pdftex.def Info: ./images/Figure_2.png  used on input line 207.
 (pdftex.def)             Requested size: 254.39117pt x 190.79338pt.
 
-Overfull \hbox (29.25523pt too wide) in paragraph at lines 203--207
+Overfull \hbox (29.25523pt too wide) in paragraph at lines 207--211
 [][]
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
+[2 <./images/Figure_1.png>]
 
-
-[2 <./images/Figure_1.png>] (./egpaper_final.bbl
+(./egpaper_final.bbl
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 10.
  (c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
@@ -389,8 +384,6 @@ Underfull \hbox (badness 4765) in paragraph at lines 8--12
 \OT1/pcr/m/n/9 pima-[]indians-[]diabetes-[]database$[]\OT1/ptm/m/n/9 .  [Ac-cessed
  []
 
-
-
 )
 
 [3 <./images/Figure_2.png>] (./egpaper_final.aux)
@@ -400,18 +393,18 @@ L3 programming layer <2024-05-27>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 10477 strings out of 475543
- 164920 string characters out of 5775889
- 1951908 words of memory out of 5000000
+ 10479 strings out of 475543
+ 164938 string characters out of 5775889
+ 1948908 words of memory out of 5000000
  32943 multiletter control sequences out of 15000+600000
  578976 words of font info for 86 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,9n,79p,329b,445s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,329b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/Lounge/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on egpaper_final.pdf (3 pages, 167960 bytes).
+Output written on egpaper_final.pdf (3 pages, 172115 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
+ 103 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
+ 21 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

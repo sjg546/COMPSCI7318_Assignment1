@@ -37,7 +37,11 @@
 %%%%%%%%% ABSTRACT
 \begin{abstract}
    The perceptron algorithm is one of the simplest machine learning algorithms. It is a
-   form of supervised learning that
+   form of supervised learning that takes a set of predictor variables and classifies observations
+   into a binary class. This report takes an implementation of the Perceptron algorithm and measures
+   it performance at classifying observations as either having diabetes or not. Investigations into
+   model variability and optimal iteration values were conducted and the impact these have on the
+   overall model performance are discussed.
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
@@ -218,11 +222,30 @@ caused by the small number of observations.
 For this report, outlier data was not accounted for. This could have compounded with the small dataset size
 to increase the variability of the final results. If the training dataset contained a high proportion of
 observations with outlier data the final $W$ would not result in optimal results when run against the testing
-set. Future work for this problem would be to address the outlier data through omitting observations that
+set. Future work for this problem would be to
+
+\section{Future Work}
+For future work on this problem building a system that trains multiple $W$ vectors and uses the mean of them
+as the final value will be investigated. This would reduce the highly variable results caused by the differences
+in the training set chosen. It is possible that this could result in the Perceptron overfitting the data
+as given enough iterations of the model training it is likely the vast majority of the observations would
+be included in one or multiple iterations. The impact of this should be reduced since the weights of a given
+observation on the trained model would only be included in a subset of the training iterations. Other future work
+would be to address the outlier data through omitting observations that
 contain outlier values or devising a method of keeping them out of the training set which would likely
-increase the models average performance.
+increase the models average performance. Another approach would be to replace the missing values in any
+given observation with the mean value of the dataset.
 
-
+\section{Conclusion}
+The Perceptron algorithm performs well at predicting diabetes based on the available variables from the Pima
+Indians dataset. With the small dataset available the Perceptron algorithm is able to make predictions with
+an average accuracy of approximately 0.75. This result is highly dependant on the subset of the data used
+for the training set and an investigation was completed to investigate this. It was found that using this
+dataset, the Perceptron was never able to converge on a solution that separated all of the observations into
+their correct groups. The impact on model performance from different max iterations was investigated and it
+was found that a good balance of variability and performance occured at approximately 2000 iterations.
+Strategies were outlined in the future work section of this report for addressing variability present
+in the model training process and handling of missing data from some of the observations.
 %-------------------------------------------------------------------------
 \small
 \bibliographystyle{ieee_fullname}
