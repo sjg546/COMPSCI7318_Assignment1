@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}\itemsep=-1pt
 
+\bibitem{cornellProfessorsPerceptron}
+{P}rofessor’s perceptron paved the way for {A}{I} – 60 years too soon | {C}ornell {C}hronicle --- news.cornell.edu.
+\newblock \url{https://news.cornell.edu/stories/2019/09/professors-perceptron-paved-way-ai-60-years-too-soon}.
+\newblock [Accessed 14-09-2024].
+
 \bibitem{gholamy_why_nodate}
 Afshin Gholamy, Vladik Kreinovich, and Olga Kosheleva.
 \newblock Why 70/30 or 80/20 {Relation} {Between} {Training} and {Testing} {Sets}: {A} {Pedagogical} {Explanation}.

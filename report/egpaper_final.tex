@@ -48,7 +48,10 @@
 \section{Introduction}
 
 Perceptron is one of the simplest machine learning algorithms. Perceptron is a supervised learning
-algorithm that takes a combination of parameters to make a binary classification.
+algorithm that takes a combination of parameters to make a binary classification. Perceptron was initially
+developed in 1958 \cite{cornellProfessorsPerceptron} however was not fully utilised until much later
+when it was used in machine learning as a part of multi layer neural networks. The single layer
+Perceptron is able to "learn" from a set of information and provide output based on the input information.
 Perceptron works by iteratively calculating a set of weights based on the dimension size
 of the features in the dataset, $D$. The output of which is a line or $D$ dimension plane
 that separates the observations into two categories. Perceptron calculates the updated
@@ -139,6 +142,15 @@ $y_i$ with $x_i$. Let $W$ at the current time be defined as $W_t$. This update s
    W_{t+1} = W_t + (y_i * x_i)
 \end{equation}
 
+A learning rate value, $\alpha$, can be used when updating $W$ however in the case of the single layer
+Perceptron, it does not effect the final result as it will converge on a stable solution regardless. What it
+can be used for is altering the volatility of the updates to $W$ and in some cases can speed up the rate at
+which the algorithm converges. The equation for updating $W$ that includes the $\alpha$ valu is defined as
+
+\begin{equation}\label{eq:updateweight}
+   W_{t+1} = W_t + \alpha (y_i * x_i)
+\end{equation}
+
 Similarly, $b$ needs to be updated in the case of an incorrect prediction. Let $b$ at the current time
 be defined as $b_t$. The update step is defined as
 
@@ -222,7 +234,8 @@ caused by the small number of observations.
 For this report, outlier data was not accounted for. This could have compounded with the small dataset size
 to increase the variability of the final results. If the training dataset contained a high proportion of
 observations with outlier data the final $W$ would not result in optimal results when run against the testing
-set. Future work for this problem would be to
+set. Where there is missing data in the observation, the value is set to -1 which does impact the updating
+of the $W$ vector. Imputing these values will be discussed in the future work section of this report.
 
 \section{Future Work}
 For future work on this problem building a system that trains multiple $W$ vectors and uses the mean of them
@@ -251,5 +264,7 @@ in the model training process and handling of missing data from some of the obse
 \bibliographystyle{ieee_fullname}
 \bibliography{egbib}
 
+\section{Appendix}
+Github repository link:  \url{https://github.com/sjg546/COMPSCI7318_Assignment1}
 
 \end{document}
